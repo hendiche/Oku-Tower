@@ -11,15 +11,19 @@ public class GameManager : MonoBehaviour
     public int killLimit = 10;
     private int killCount = 0;
     private Text txt;
+    private Text GOTxt;
+    private bool isGameEnd = false;
 
     // Start is called before the first frame update
     void Start()
     {
         score = 0; 
         txt = GameObject.Find("Text (1)").GetComponent<Text>();
+        GOTxt = GameObject.Find("GO Score").GetComponent<Text>();
     }
 
     public void updateScore(){
+        if (isGameEnd) return;
         score++;
         txt.text = score.ToString();
         Debug.Log("Score is " + score);
@@ -29,6 +33,8 @@ public class GameManager : MonoBehaviour
         wasapiiHP--;
 
         if(wasapiiHP <= 0){
+            isGameEnd = true;
+            GOTxt.text = score.ToString();
             //changeScreen();
         }
         Debug.Log("Wasapii's HP is " + wasapiiHP);
@@ -40,6 +46,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Kill count " + killCount);
         if(killCount >= killLimit){
             Debug.Log("Number of defeated enemies reached.");
+            isGameEnd = true;
             //changeScreen();
         }
     }
