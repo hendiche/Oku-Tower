@@ -2841,6 +2841,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: tower
       objectReference: {fileID: 0}
+    - target: {fileID: 1032584726009328, guid: 2276723046d707c4f94d431ceb80ab92, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 137723638835135990, guid: 2276723046d707c4f94d431ceb80ab92,
         type: 3}
       propertyPath: m_Quality
@@ -6714,6 +6718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03d9f87e159ee35458ee2a6717de08b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
 --- !u!4 &2032266057
 Transform:
   m_ObjectHideFlags: 0
@@ -7198,6 +7203,14 @@ PrefabInstance:
       propertyPath: _manager
       value: 
       objectReference: {fileID: 1567890500}
+    - target: {fileID: 552781123, guid: 8b56ef31b0ae7024a8a42c8662dd8b53, type: 3}
+      propertyPath: _overrideNoContactLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 552781123, guid: 8b56ef31b0ae7024a8a42c8662dd8b53, type: 3}
+      propertyPath: _ignoreContact
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b56ef31b0ae7024a8a42c8662dd8b53, type: 3}
 --- !u!1001 &3636576279792575498
