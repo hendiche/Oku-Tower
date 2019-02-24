@@ -8,9 +8,13 @@ public class Destroy : MonoBehaviour
 {
     public Transform explosionPrefab;
     // Start is called before the first frame update
+
+    public GameObject gameManager;
+    private bool scoreFlag = false;
+    
     void Start()
     {
-
+        gameManager = GameObject.Find("GameManager");  
     }
 
     void OnCollisionEnter(Collision collision) {
@@ -18,23 +22,25 @@ public class Destroy : MonoBehaviour
       ContactPoint contact = collision.contacts[0];
       Vector3 pos = contact.point;
 
-      if(collision.gameObject.tag != "enemy")
-      {
-        Instantiate (explosionPrefab, pos, Quaternion.identity);
-        Destroy(this.gameObject);
+      if(collision.gameObject.tag == "enemy"){
 
-      HandModelBase hand = collision.gameObject.GetComponentInParent<HandModelBase>();
-      if(hand != null)
-      {
-          Debug.Log("collide");
+      }else{
+        if(collision.gameObject.tag != "tower" && !scoreFlag){
+            scoreFlag = true;
+            gameManager.GetComponent<GameManager>().updateScore();
+            Instantiate (explosionPrefab, pos, Quaternion.identity);
+            Destroy(this.gameObject);
+            Debug.Log("Score++");
+        }else{
           Instantiate (explosionPrefab, pos, Quaternion.identity);
           Destroy(this.gameObject);
+        }
       }
-    }
 
     }
 
     void OnDestroy() {
+      Debug.Log("hello");
       Destroy(transform.parent.gameObject);
     }
 }

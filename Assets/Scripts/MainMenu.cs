@@ -20,7 +20,7 @@ public class MainMenu : MonoBehaviour
     public void onClick(string btn_name) {
         Debug.Log("test click");
         if (btn_name == "START") {
-            SceneManager.LoadScene("TestNextScene", LoadSceneMode.Single);
+            SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
         }
     }
 }
