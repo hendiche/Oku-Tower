@@ -11,6 +11,9 @@ public class SpawnManager : MonoBehaviour
 
     public GameObject panel;
 
+    //public int enemyLimit = 10;
+    //private int enemiesDefeated = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,11 +32,11 @@ public class SpawnManager : MonoBehaviour
         {
             case "Top":
             case "Bottom":
-                randomPoint = randomPoint + new Vector3(Random.Range(-0.3f, 0.3f), 0, 0);
+                randomPoint = randomPoint + new Vector3(Random.Range(-0.73f, 0.73f), 0, 0);
                 break;
             case "Left":
             case "Right":
-                randomPoint = randomPoint + new Vector3(0, Random.Range(-0.15f, 0.15f), 0);
+                randomPoint = randomPoint + new Vector3(0, Random.Range(-0.4f, 0.4f), 0);
                 break;
         }
 

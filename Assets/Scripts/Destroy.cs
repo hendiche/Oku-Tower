@@ -9,12 +9,14 @@ public class Destroy : MonoBehaviour
     public Transform explosionPrefab;
     // Start is called before the first frame update
 
-    public GameObject gameManager;
+    private GameObject gameManager;
+    private GameManager gmScript;
     private bool scoreFlag = false;
     
     void Start()
     {
-        gameManager = GameObject.Find("GameManager");  
+        gameManager = GameObject.Find("GameManager");
+        gmScript = gameManager.GetComponent<GameManager>();
     }
 
     void OnCollisionEnter(Collision collision) {
@@ -26,21 +28,21 @@ public class Destroy : MonoBehaviour
 
       }else{
         if(collision.gameObject.tag != "tower" && !scoreFlag){
-            scoreFlag = true;
-            gameManager.GetComponent<GameManager>().updateScore();
-            Instantiate (explosionPrefab, pos, Quaternion.identity);
-            Destroy(this.gameObject);
-            Debug.Log("Score++");
+                scoreFlag = true;
+                gmScript.updateScore();
+                gmScript.updateKillCount();
+                Instantiate (explosionPrefab, pos, Quaternion.identity);
+                Destroy(this.gameObject);
         }else{
-          Instantiate (explosionPrefab, pos, Quaternion.identity);
-          Destroy(this.gameObject);
+                gmScript.updateHP();
+                Instantiate (explosionPrefab, pos, Quaternion.identity);
+                Destroy(this.gameObject);
         }
       }
 
     }
 
     void OnDestroy() {
-      Debug.Log("hello");
       Destroy(transform.parent.gameObject);
     }
 }
