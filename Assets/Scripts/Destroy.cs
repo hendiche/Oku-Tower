@@ -33,7 +33,7 @@ public class Destroy : MonoBehaviour
                 gmScript.updateKillCount();
                 Instantiate (explosionPrefab, pos, Quaternion.identity);
                 Destroy(this.gameObject);
-        }else{
+        }else if(collision.gameObject.tag == "tower"){
                 gmScript.updateHP();
                 Instantiate (explosionPrefab, pos, Quaternion.identity);
                 Destroy(this.gameObject);
