@@ -1411,8 +1411,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 70.3, y: 136.5}
-  m_SizeDelta: {x: 54.4, y: 30}
+  m_AnchoredPosition: {x: 112.7, y: 265.7}
+  m_SizeDelta: {x: 80.2, y: 55.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &449633699
 MonoBehaviour:
@@ -1451,11 +1451,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 24
+    m_FontSize: 44
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 44
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -3792,7 +3792,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 991163603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.003, y: 1.632, z: 0.778}
+  m_LocalPosition: {x: -0.003, y: 1.632, z: 0.917}
   m_LocalScale: {x: 0.090566985, y: 0.090566985, z: 0.090566985}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6919,8 +6919,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 42.1, y: 137.8}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 42.1, y: 273.3}
+  m_SizeDelta: {x: 260, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1812844000
 MonoBehaviour:
@@ -6959,11 +6959,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 24
+    m_FontSize: 44
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 60
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -8132,11 +8132,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 926557108, guid: 8b56ef31b0ae7024a8a42c8662dd8b53, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.863
+      value: 1.152
       objectReference: {fileID: 0}
     - target: {fileID: 926557108, guid: 8b56ef31b0ae7024a8a42c8662dd8b53, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.915
+      value: 2.082
       objectReference: {fileID: 0}
     - target: {fileID: 926557108, guid: 8b56ef31b0ae7024a8a42c8662dd8b53, type: 3}
       propertyPath: m_LocalPosition.z
