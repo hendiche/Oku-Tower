@@ -6830,7 +6830,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wasapiiHP: 0
   enemy: {fileID: 926557106, guid: 8b56ef31b0ae7024a8a42c8662dd8b53, type: 3}
-  spawnTime: 1
+  spawnTime: 5
   spawnPoints:
   - {fileID: 450342276}
   - {fileID: 1400649967}
@@ -7695,7 +7695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  wasapiiHP: 3
+  wasapiiHP: 10
   killLimit: 10
   endCanvas: {fileID: 832383100}
 --- !u!4 &2032266057
