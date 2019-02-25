@@ -29,12 +29,12 @@ public class Destroy : MonoBehaviour
       }else{
         if(collision.gameObject.tag != "tower" && !scoreFlag){
                 scoreFlag = true;
-                gmScript.updateScore();
-                gmScript.updateKillCount();
+                gmScript.UpdateScore();
+                gmScript.UpdateKillCount();
                 Instantiate (explosionPrefab, pos, Quaternion.identity);
                 Destroy(this.gameObject);
         }else if(collision.gameObject.tag == "tower"){
-                gmScript.updateHP();
+                gmScript.UpdateHP();
                 Instantiate (explosionPrefab, pos, Quaternion.identity);
                 Destroy(this.gameObject);
         }

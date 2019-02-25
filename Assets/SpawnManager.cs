@@ -44,4 +44,9 @@ public class SpawnManager : MonoBehaviour
         Instantiate(enemy, randomPoint,
                     spawnPoints[spawnPointIndex].rotation);
     }
+
+    public void StopSpawn(){
+        CancelInvoke("Spawn");
+        Debug.Log("Spawn Cancelled");
+    }
 }
