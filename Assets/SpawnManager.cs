@@ -6,7 +6,7 @@ public class SpawnManager : MonoBehaviour
 {
     public int wasapiiHP;
     public GameObject enemy;
-    public float spawnTime = 3f;
+    public float spawnTime = 5f;
     public Transform[] spawnPoints;
 
     public GameObject panel;
