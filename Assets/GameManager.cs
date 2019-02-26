@@ -7,16 +7,26 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public int score;
-    public int wasapiiHP = 10;
+    public int wasapiiMaxHP = 10;
+
+    //Enemy stuff
     public int killLimit = 10;
     private int killCount = 0;
+    private float health;
+
+    //UI stuff
     private Text txt;
     private Text GOTxt;
-    private Text endTxt;
     private bool isGameEnd = false;
+
     //public Canvas endCanvas;
     public GameObject endCanvas;
-    //public static GameObject scoreCanvas;
+    public GameObject scoreCanvas;
+
+    //Timer Stuff
+    public float maxTime = 60f;
+    private Text timerUI;
+    private float timeRemaining;
 
     // Start is called before the first frame update
     void Start()
@@ -24,14 +34,16 @@ public class GameManager : MonoBehaviour
         score = 0; 
         txt = GameObject.Find("Text (1)").GetComponent<Text>();
         GOTxt = GameObject.Find("GO Score").GetComponent<Text>();
-        endTxt = GameObject.Find("endText").GetComponent<Text>();
-        endTxt.text = "";
-        //endCanvas = GameObject.Find("CanvasEnd").GetComponent<Canvas>();
+        timerUI = GameObject.Find("Timer").GetComponent<Text>();
 
+        scoreCanvas = GameObject.Find("CanvasGame");
         endCanvas = GameObject.Find("CanvasEnd");
-        //endCanvas = GetComponent<Canvas>();
 
-        //Debug.Log("end is active " + endCanvas.activeInHierarchy);
+        health = wasapiiMaxHP;
+
+        //init
+        timeRemaining = maxTime;
+        UpdateTimer(timeRemaining);
     }
 
     public void UpdateScore(){
@@ -45,45 +57,55 @@ public class GameManager : MonoBehaviour
 
     public void UpdateHP(){
         if(!isGameEnd){
-            wasapiiHP--;
+            health--;
 
-            if (wasapiiHP <= 0)
+            if (health <= 0)
             {
                 Debug.Log("Wasapii's HP is gone");
                 isGameEnd = true;
-                //GOTxt.text = score.ToString();
-                //endTxt.text = "お疲れ様です！";
                 endCanvas.GetComponent<Canvas>().enabled = true;
                 GOTxt.text = "スコア："+ score.ToString();
-                //GameObject.Find("SpawnManager").GetComponent<SpawnManager>().StopSpawn();
-                //ChangeScreen();
-                //endCanvas.enabled = true;
-                //endCanvas.gameObject.SetActive(true);
             }
-            Debug.Log("Wasapii's HP is " + wasapiiHP);
+            Debug.Log("Wasapii's HP is " + health);
         }
     }
 
     public void UpdateKillCount(){
 
-        if(isGameEnd){
+        if(!isGameEnd){
             killCount++;
             Debug.Log("Kill count " + killCount);
             if (killCount >= killLimit)
             {
                 Debug.Log("Number of defeated enemies reached.");
                 isGameEnd = true;
-                //changeScreen();
+                endCanvas.GetComponent<Canvas>().enabled = true;
+                GOTxt.text = "スコア：" + score.ToString();
             }
         }
     }
 
-    //private void ChangeScreen(){
-    //    Debug.Log("changing screens");
-    //    //SceneManager.LoadScene(screen, LoadSceneMode.Single);
-    //    scoreCanvas.SetActive(false);
-    //    endCanvas.SetActive(true);
+    private void UpdateTimer(float time)
+    {
+        int min = Mathf.FloorToInt(time / 60f);
+        int sec = Mathf.RoundToInt(time % 60f);
 
-    //    Debug.Log("end is active " + endCanvas.activeInHierarchy);
-    //}
+        timerUI.text = min.ToString("00") + ":" + sec.ToString("00");
+    }
+
+    private void Update()
+    {
+        timeRemaining -= Time.deltaTime;
+
+        if(timeRemaining <= 0f){
+            Debug.Log("Time is up.");
+            isGameEnd = true;
+            endCanvas.GetComponent<Canvas>().enabled = true;
+            GOTxt.text = "スコア：" + score.ToString();
+        }
+        else{
+            UpdateTimer(timeRemaining);
+        }
+    }
+
 }
