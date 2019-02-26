@@ -135,8 +135,13 @@ public class GameManager : MonoBehaviour
                 isSpawning = true;
                 GameObject.Find("SpawnManager").GetComponent<SpawnManager>().StartSpawn();
             }
+            if (isStartCounting) {
+                redirectTxt.text = Mathf.RoundToInt(countTime % 60f).ToString() + "秒にメインメニューへ戻る";
+                countTime -= Time.deltaTime;
+            }
 
             timeRemaining -= Time.deltaTime;
+            if (isStartCounting && countTime <= 0f) SceneManager.LoadScene("MainMenuScene", LoadSceneMode.Single);
 
             if (timeRemaining <= 0f)
             {
