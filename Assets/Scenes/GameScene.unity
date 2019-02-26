@@ -7907,7 +7907,7 @@ MonoBehaviour:
   startTextDone: 0
   endCanvas: {fileID: 832383100}
   scoreCanvas: {fileID: 0}
-  maxTime: 10
+  maxTime: 60
 --- !u!4 &2032266057
 Transform:
   m_ObjectHideFlags: 0
@@ -8424,7 +8424,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -306.89, y: -323}
+  m_AnchoredPosition: {x: -84, y: -197}
   m_SizeDelta: {x: 630.5, y: 56.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2146237550

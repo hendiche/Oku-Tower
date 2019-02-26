@@ -147,8 +147,8 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log("Time is up.");
                 isGameEnd = true;
-                endCanvas.GetComponent<Canvas>().enabled = true;
                 scoreCanvas.GetComponent<Canvas>().enabled = false;
+                endCanvas.GetComponent<Canvas>().enabled = true;
                 GOTxt.text = score.ToString();
                 isStartCounting = true;
                 countTime = 5.0f;
