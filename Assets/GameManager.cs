@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public float maxTime = 60f;
     private Text timerUI;
     private float timeRemaining;
+    private bool isSpawning = false;
 
     //Redirect Time
     private Text redirectTxt;
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         score = 0; 
-        txt = GameObject.Find("Text (1)").GetComponent<Text>();
+        txt = GameObject.Find("Text").GetComponent<Text>();
         GOTxt = GameObject.Find("GO Score").GetComponent<Text>();
         timerUI = GameObject.Find("Timer").GetComponent<Text>();
         redirectTxt = GameObject.Find("RedirectText").GetComponent<Text>();
@@ -72,7 +73,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Wasapii's HP is gone");
                 isGameEnd = true;
                 endCanvas.GetComponent<Canvas>().enabled = true;
-                GOTxt.text = "スコア："+ score.ToString();
+                GOTxt.text = score.ToString();
                 isStartCounting = true;
                 countTime = 5.0f;
             }
@@ -89,8 +90,9 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log("Number of defeated enemies reached.");
                 isGameEnd = true;
+                scoreCanvas.GetComponent<Canvas>().enabled = false;
                 endCanvas.GetComponent<Canvas>().enabled = true;
-                GOTxt.text = "スコア：" + score.ToString();
+                GOTxt.text = score.ToString();
                 isStartCounting = true;
                 countTime = 5.0f;
             }
@@ -100,7 +102,7 @@ public class GameManager : MonoBehaviour
     private void UpdateTimer(float time)
     {
         int min = Mathf.FloorToInt(time / 60f);
-        int sec = Mathf.RoundToInt(time % 60f);
+        int sec = Mathf.FloorToInt(time % 60f);
 
         timerUI.text = min.ToString("00") + ":" + sec.ToString("00");
     }
@@ -108,26 +110,35 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if(startTextDone == true) {
+
+            if(!isSpawning){
+                isSpawning = true;
+                GameObject.Find("SpawnManager").GetComponent<SpawnManager>().StartSpawn();
+            }
+
             timeRemaining -= Time.deltaTime;
 
-        if (isStartCounting) {
-            redirectTxt.text = Mathf.RoundToInt(countTime % 60f).ToString() + "秒にメインメニューへ戻る";
-            countTime -= Time.deltaTime;
-        }
-
-        if (isStartCounting && countTime <= 0f) SceneManager.LoadScene("MainMenuScene", LoadSceneMode.Single);
-
-            if(timeRemaining <= 0f){
+            if (timeRemaining <= 0f)
+            {
                 Debug.Log("Time is up.");
                 isGameEnd = true;
                 endCanvas.GetComponent<Canvas>().enabled = true;
-                GOTxt.text = "スコア：" + score.ToString();
-            isStartCounting = true;
-            countTime = 5.0f;
+                scoreCanvas.GetComponent<Canvas>().enabled = false;
+                GOTxt.text = score.ToString();
+                isStartCounting = true;
+                countTime = 5.0f;
             }
-            else{
+            else
+            {
                 UpdateTimer(timeRemaining);
             }
+
+            if (isStartCounting) {
+                redirectTxt.text = Mathf.RoundToInt(countTime % 60f).ToString() + "秒にメインメニューへ戻る";
+                countTime -= Time.deltaTime;
+            }
+
+            if (isStartCounting && countTime <= 0f) SceneManager.LoadScene("MainMenuScene", LoadSceneMode.Single);
         }
     }
 

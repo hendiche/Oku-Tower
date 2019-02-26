@@ -20,7 +20,6 @@ public class SpawnManager : MonoBehaviour
         Vector3 boxSize = panel.GetComponent<SpriteRenderer>().bounds.size;
         Debug.Log(boxSize.x);
         Debug.Log(boxSize.y);
-        InvokeRepeating("Spawn", spawnTime, spawnTime);
     }
 
     void Spawn()
@@ -43,6 +42,10 @@ public class SpawnManager : MonoBehaviour
 
         Instantiate(enemy, randomPoint,
                     spawnPoints[spawnPointIndex].rotation);
+    }
+
+    public void StartSpawn(){
+        InvokeRepeating("Spawn", spawnTime, spawnTime);
     }
 
     public void StopSpawn(){
