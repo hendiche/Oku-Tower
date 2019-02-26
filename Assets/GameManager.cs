@@ -28,6 +28,11 @@ public class GameManager : MonoBehaviour
     private Text timerUI;
     private float timeRemaining;
 
+    //Redirect Time
+    private Text redirectTxt;
+    private float countTime;
+    private bool isStartCounting = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +40,7 @@ public class GameManager : MonoBehaviour
         txt = GameObject.Find("Text (1)").GetComponent<Text>();
         GOTxt = GameObject.Find("GO Score").GetComponent<Text>();
         timerUI = GameObject.Find("Timer").GetComponent<Text>();
+        redirectTxt = GameObject.Find("RedirectText").GetComponent<Text>();
 
         scoreCanvas = GameObject.Find("CanvasGame");
         endCanvas = GameObject.Find("CanvasEnd");
@@ -65,6 +71,8 @@ public class GameManager : MonoBehaviour
                 isGameEnd = true;
                 endCanvas.GetComponent<Canvas>().enabled = true;
                 GOTxt.text = "スコア："+ score.ToString();
+                isStartCounting = true;
+                countTime = 5.0f;
             }
             Debug.Log("Wasapii's HP is " + health);
         }
@@ -81,6 +89,8 @@ public class GameManager : MonoBehaviour
                 isGameEnd = true;
                 endCanvas.GetComponent<Canvas>().enabled = true;
                 GOTxt.text = "スコア：" + score.ToString();
+                isStartCounting = true;
+                countTime = 5.0f;
             }
         }
     }
@@ -97,11 +107,20 @@ public class GameManager : MonoBehaviour
     {
         timeRemaining -= Time.deltaTime;
 
+        if (isStartCounting) {
+            redirectTxt.text = Mathf.RoundToInt(countTime % 60f).ToString() + "秒にメインメニューへ戻る";
+            countTime -= Time.deltaTime;
+        }
+
+        if (isStartCounting && countTime <= 0f) SceneManager.LoadScene("MainMenuScene", LoadSceneMode.Single);
+
         if(timeRemaining <= 0f){
             Debug.Log("Time is up.");
             isGameEnd = true;
             endCanvas.GetComponent<Canvas>().enabled = true;
             GOTxt.text = "スコア：" + score.ToString();
+            isStartCounting = true;
+            countTime = 5.0f;
         }
         else{
             UpdateTimer(timeRemaining);
