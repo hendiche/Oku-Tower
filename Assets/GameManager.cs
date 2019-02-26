@@ -23,17 +23,27 @@ public class GameManager : MonoBehaviour
     public GameObject endCanvas;
     public GameObject scoreCanvas;
 
+    //Timer Stuff
+    public float maxTime = 60f;
+    private Text timerUI;
+    private float timeRemaining;
+
     // Start is called before the first frame update
     void Start()
     {
         score = 0; 
         txt = GameObject.Find("Text (1)").GetComponent<Text>();
         GOTxt = GameObject.Find("GO Score").GetComponent<Text>();
+        timerUI = GameObject.Find("Timer").GetComponent<Text>();
 
         scoreCanvas = GameObject.Find("CanvasGame");
         endCanvas = GameObject.Find("CanvasEnd");
 
         health = wasapiiMaxHP;
+
+        //init
+        timeRemaining = maxTime;
+        UpdateTimer(timeRemaining);
     }
 
     public void UpdateScore(){
@@ -72,6 +82,29 @@ public class GameManager : MonoBehaviour
                 endCanvas.GetComponent<Canvas>().enabled = true;
                 GOTxt.text = "スコア：" + score.ToString();
             }
+        }
+    }
+
+    private void UpdateTimer(float time)
+    {
+        int min = Mathf.FloorToInt(time / 60f);
+        int sec = Mathf.RoundToInt(time % 60f);
+
+        timerUI.text = min.ToString("00") + ":" + sec.ToString("00");
+    }
+
+    private void Update()
+    {
+        timeRemaining -= Time.deltaTime;
+
+        if(timeRemaining <= 0f){
+            Debug.Log("Time is up.");
+            isGameEnd = true;
+            endCanvas.GetComponent<Canvas>().enabled = true;
+            GOTxt.text = "スコア：" + score.ToString();
+        }
+        else{
+            UpdateTimer(timeRemaining);
         }
     }
 
