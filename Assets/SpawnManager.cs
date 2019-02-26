@@ -11,8 +11,8 @@ public class SpawnManager : MonoBehaviour
 
     public GameObject panel;
 
-    //public int enemyLimit = 10;
-    //private int enemiesDefeated = 0;
+    public int enemyLimit = 10;
+    private int enemiesDefeated = 0;
 
     // Start is called before the first frame update
     void Start()
