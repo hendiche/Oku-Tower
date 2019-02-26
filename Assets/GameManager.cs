@@ -108,24 +108,28 @@ public class GameManager : MonoBehaviour
     }
 
     private void Update()
-    {
+    {        
         if(startTextDone == true) {
+            if (isStartCounting && countTime <= 0f) {
+                SceneManager.LoadScene("MainMenuScene", LoadSceneMode.Single);
+                return;
+            }
 
             if(!isSpawning){
                 isSpawning = true;
                 GameObject.Find("SpawnManager").GetComponent<SpawnManager>().StartSpawn();
             }
+
+            timeRemaining -= Time.deltaTime;
+
             if (isStartCounting) {
                 redirectTxt.text = Mathf.RoundToInt(countTime % 60f).ToString() + "秒にメインメニューへ戻る";
                 countTime -= Time.deltaTime;
+                return;
             }
-
-            timeRemaining -= Time.deltaTime;
-            if (isStartCounting && countTime <= 0f) SceneManager.LoadScene("MainMenuScene", LoadSceneMode.Single);
 
             if (timeRemaining <= 0f)
             {
-                Debug.Log("Time is up.");
                 isGameEnd = true;
                 endCanvas.GetComponent<Canvas>().enabled = true;
                 scoreCanvas.GetComponent<Canvas>().enabled = false;
@@ -137,13 +141,6 @@ public class GameManager : MonoBehaviour
             {
                 UpdateTimer(timeRemaining);
             }
-
-            if (isStartCounting) {
-                redirectTxt.text = Mathf.RoundToInt(countTime % 60f).ToString() + "秒にメインメニューへ戻る";
-                countTime -= Time.deltaTime;
-            }
-
-            if (isStartCounting && countTime <= 0f) SceneManager.LoadScene("MainMenuScene", LoadSceneMode.Single);
         }
     }
 
