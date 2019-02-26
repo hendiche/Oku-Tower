@@ -7717,7 +7717,7 @@ MonoBehaviour:
   startTextDone: 0
   endCanvas: {fileID: 832383100}
   scoreCanvas: {fileID: 0}
-  maxTime: 60
+  maxTime: 10
 --- !u!4 &2032266057
 Transform:
   m_ObjectHideFlags: 0
