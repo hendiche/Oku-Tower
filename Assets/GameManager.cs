@@ -12,7 +12,10 @@ public class GameManager : MonoBehaviour
     //Enemy stuff
     public int killLimit = 10;
     private int killCount = 0;
+
+    //HP stuff
     private float health;
+    private Image HPBar;
 
     //UI stuff
     private Text txt;
@@ -48,7 +51,9 @@ public class GameManager : MonoBehaviour
         scoreCanvas = GameObject.Find("CanvasGame");
         endCanvas = GameObject.Find("CanvasEnd");
 
+        HPBar = GameObject.Find("HPBar").GetComponent<Image>();
         health = wasapiiMaxHP;
+        UpdateHealthBar(health);
 
         //init
         timeRemaining = maxTime;
@@ -67,6 +72,7 @@ public class GameManager : MonoBehaviour
     public void UpdateHP(){
         if(!isGameEnd){
             health--;
+            UpdateHealthBar(health);
 
             if (health <= 0)
             {
@@ -78,6 +84,20 @@ public class GameManager : MonoBehaviour
                 countTime = 5.0f;
             }
             Debug.Log("Wasapii's HP is " + health);
+        }
+    }
+
+    private void UpdateHealthBar(float remainingHP)
+    {
+        float percent = remainingHP / wasapiiMaxHP;
+        HPBar.fillAmount = percent;
+
+        if (HPBar.fillAmount <= 0.3){
+            HPBar.color = new Color32(210, 46, 41, 255); //red
+        }else if (HPBar.fillAmount <= 0.5) {
+            HPBar.color = new Color32(224, 137, 30, 255); //yellow
+        }else{
+            HPBar.color = new Color32(32, 161, 50, 255); //green
         }
     }
 
@@ -131,8 +151,8 @@ public class GameManager : MonoBehaviour
             if (timeRemaining <= 0f)
             {
                 isGameEnd = true;
-                endCanvas.GetComponent<Canvas>().enabled = true;
                 scoreCanvas.GetComponent<Canvas>().enabled = false;
+                endCanvas.GetComponent<Canvas>().enabled = true;
                 GOTxt.text = score.ToString();
                 isStartCounting = true;
                 countTime = 5.0f;
