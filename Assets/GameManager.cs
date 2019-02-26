@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     private Text GOTxt;
     private bool isGameEnd = false;
 
+    public bool startTextDone = false;
+
     //public Canvas endCanvas;
     public GameObject endCanvas;
     public GameObject scoreCanvas;
@@ -105,7 +107,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        timeRemaining -= Time.deltaTime;
+        if(startTextDone == true) {
+            timeRemaining -= Time.deltaTime;
 
         if (isStartCounting) {
             redirectTxt.text = Mathf.RoundToInt(countTime % 60f).ToString() + "秒にメインメニューへ戻る";
@@ -114,16 +117,17 @@ public class GameManager : MonoBehaviour
 
         if (isStartCounting && countTime <= 0f) SceneManager.LoadScene("MainMenuScene", LoadSceneMode.Single);
 
-        if(timeRemaining <= 0f){
-            Debug.Log("Time is up.");
-            isGameEnd = true;
-            endCanvas.GetComponent<Canvas>().enabled = true;
-            GOTxt.text = "スコア：" + score.ToString();
+            if(timeRemaining <= 0f){
+                Debug.Log("Time is up.");
+                isGameEnd = true;
+                endCanvas.GetComponent<Canvas>().enabled = true;
+                GOTxt.text = "スコア：" + score.ToString();
             isStartCounting = true;
             countTime = 5.0f;
-        }
-        else{
-            UpdateTimer(timeRemaining);
+            }
+            else{
+                UpdateTimer(timeRemaining);
+            }
         }
     }
 
