@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     private Text GOTxt;
     private bool isGameEnd = false;
 
+    public bool startTextDone = false;
+
     //public Canvas endCanvas;
     public GameObject endCanvas;
     public GameObject scoreCanvas;
@@ -95,16 +97,18 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        timeRemaining -= Time.deltaTime;
+        if(startTextDone == true) {
+            timeRemaining -= Time.deltaTime;
 
-        if(timeRemaining <= 0f){
-            Debug.Log("Time is up.");
-            isGameEnd = true;
-            endCanvas.GetComponent<Canvas>().enabled = true;
-            GOTxt.text = "スコア：" + score.ToString();
-        }
-        else{
-            UpdateTimer(timeRemaining);
+            if(timeRemaining <= 0f){
+                Debug.Log("Time is up.");
+                isGameEnd = true;
+                endCanvas.GetComponent<Canvas>().enabled = true;
+                GOTxt.text = "スコア：" + score.ToString();
+            }
+            else{
+                UpdateTimer(timeRemaining);
+            }
         }
     }
 
