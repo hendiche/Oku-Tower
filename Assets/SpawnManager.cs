@@ -42,6 +42,7 @@ public class SpawnManager : MonoBehaviour
 
         Instantiate(enemy, randomPoint,
                     spawnPoints[spawnPointIndex].rotation);
+        SoundManagerScript.PlaySound("tanuki");
     }
 
     public void StartSpawn(){
