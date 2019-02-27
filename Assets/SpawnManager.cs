@@ -11,8 +11,8 @@ public class SpawnManager : MonoBehaviour
 
     public GameObject panel;
 
-    //public int enemyLimit = 10;
-    //private int enemiesDefeated = 0;
+    public int enemyLimit = 10;
+    private int enemiesDefeated = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +20,6 @@ public class SpawnManager : MonoBehaviour
         Vector3 boxSize = panel.GetComponent<SpriteRenderer>().bounds.size;
         Debug.Log(boxSize.x);
         Debug.Log(boxSize.y);
-        InvokeRepeating("Spawn", spawnTime, spawnTime);
     }
 
     void Spawn()
@@ -43,6 +42,10 @@ public class SpawnManager : MonoBehaviour
 
         Instantiate(enemy, randomPoint,
                     spawnPoints[spawnPointIndex].rotation);
+    }
+
+    public void StartSpawn(){
+        InvokeRepeating("Spawn", spawnTime, spawnTime);
     }
 
     public void StopSpawn(){
