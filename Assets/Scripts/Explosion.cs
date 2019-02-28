@@ -13,6 +13,7 @@ public class Explosion : MonoBehaviour
     // Update is called once per frame
     IEnumerator Destroy()
     {
+        SoundManagerScript.PlaySound("poof");
         yield return new WaitForSeconds(2);
         Destroy(this.gameObject);
     }
