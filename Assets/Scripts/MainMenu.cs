@@ -14,13 +14,17 @@ public class MainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey("escape")) {
+            Application.Quit();
+        }
     }
 
     public void onClick(string btn_name) {
-        Debug.Log("test click");
         if (btn_name == "START") {
             SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+        }
+        if (btn_name == "QUIT") {
+            Application.Quit();
         }
     }
 }
