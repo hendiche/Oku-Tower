@@ -305,7 +305,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 505922775}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1050bc1e9173904fa673f7370104ce4, type: 3}
+  m_Script: {fileID: 11500000, guid: 43a6f09d57b168d4b953b8ef11d762c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &505922777
@@ -1535,7 +1537,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9db25347b7f96af4eba07132c4d40525, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 772168de07beafc4db8afe5893ff9c19, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.4
   m_Pitch: 1
@@ -1765,7 +1767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _displayInGameView: 1
   _enabledForBuild: 1
-  _sphereMesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  _sphereMesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 3}
   _gizmoShader: {fileID: 4800000, guid: 309635e4933310a4d98f0e016c806769, type: 3}
 --- !u!4 &1985126696
 Transform:
@@ -2284,6 +2286,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Leap Rig
       objectReference: {fileID: 0}
+    - target: {fileID: 1208355061779490396, guid: 4e198876f3b6957448281e25b99db17e,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1208355061779490396, guid: 4e198876f3b6957448281e25b99db17e,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 402c2019bc1a4ff42a725487123278ff, type: 3}
     - target: {fileID: 1208355061085536711, guid: 4e198876f3b6957448281e25b99db17e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2347,11 +2359,6 @@ PrefabInstance:
     - target: {fileID: 1208355062291645039, guid: 4e198876f3b6957448281e25b99db17e,
         type: 3}
       propertyPath: ModelPool.Array.data[0].IsRightToBeSpawned
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1208355061779490396, guid: 4e198876f3b6957448281e25b99db17e,
-        type: 3}
-      propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:

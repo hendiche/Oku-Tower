@@ -43,6 +43,7 @@ public class Destroy : MonoBehaviour
     }
 
     void OnDestroy() {
+      SoundManagerScript.PlaySound("poof");
       Destroy(transform.parent.gameObject);
     }
 }

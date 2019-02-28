@@ -158,8 +158,6 @@ public class GameManager : MonoBehaviour
                 isStartCounting = true;
                 countTime = 5.0f;
 
-                if(score>0) SoundManagerScript.PlaySound("win");
-                else SoundManagerScript.PlaySound("lose");
             }
             else
             {
