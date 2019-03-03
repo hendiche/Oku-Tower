@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public int wasapiiHP;
     public GameObject enemy;
     public float spawnTime = 5f;
     public Transform[] spawnPoints;
