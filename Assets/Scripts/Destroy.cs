@@ -34,7 +34,7 @@ public class Destroy : MonoBehaviour
                 Instantiate (explosionPrefab, pos, Quaternion.identity);
                 Destroy(this.gameObject);
         }else if(collision.gameObject.tag == "tower"){
-                gmScript.UpdateHP();
+                gmScript.DecreaseScore();
                 Instantiate (explosionPrefab, pos, Quaternion.identity);
                 Destroy(this.gameObject);
         }
