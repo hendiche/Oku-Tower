@@ -2000,6 +2000,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Leap Rig
       objectReference: {fileID: 0}
+    - target: {fileID: 1208355061779490396, guid: 4e198876f3b6957448281e25b99db17e,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1208355061779490396, guid: 4e198876f3b6957448281e25b99db17e,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 402c2019bc1a4ff42a725487123278ff, type: 3}
     - target: {fileID: 1208355061085536711, guid: 4e198876f3b6957448281e25b99db17e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2065,16 +2075,6 @@ PrefabInstance:
       propertyPath: ModelPool.Array.data[0].IsRightToBeSpawned
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1208355061779490396, guid: 4e198876f3b6957448281e25b99db17e,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1208355061779490396, guid: 4e198876f3b6957448281e25b99db17e,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 402c2019bc1a4ff42a725487123278ff, type: 3}
     m_RemovedComponents:
     - {fileID: 1208355061779490395, guid: 4e198876f3b6957448281e25b99db17e, type: 3}
     - {fileID: 1208355061779490394, guid: 4e198876f3b6957448281e25b99db17e, type: 3}

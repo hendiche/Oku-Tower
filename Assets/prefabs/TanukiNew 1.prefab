@@ -138,7 +138,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.04, y: 0.04, z: 0.02}
+  m_Size: {x: 0.04, y: 0.04, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &552781125
 MonoBehaviour:
@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 426390, guid: b185c1a9cf067374586d095111b15bd1, type: 3}
+  towerExplosion: {fileID: 426390, guid: 26f3c9ef6ad00c74cbaef3af126e0ef9, type: 3}
 --- !u!1 &609624817
 GameObject:
   m_ObjectHideFlags: 0
