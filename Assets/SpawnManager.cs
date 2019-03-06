@@ -45,9 +45,9 @@ public class SpawnManager : MonoBehaviour
     }
 
     public void StartSpawn(){
-        InvokeRepeating("Spawn", spawnTime, spawnTime);
+        InvokeRepeating("Spawn", 0, spawnTime);
     }
-
+    
     public void StopSpawn(){
         CancelInvoke("Spawn");
         Debug.Log("Spawn Cancelled");

@@ -34,6 +34,11 @@ public class GameManager : MonoBehaviour
     private float countTime;
     private bool isStartCounting = false;
 
+    //Cheer Text
+    private Canvas cheerUI;
+    private float cheerTimeOut = 2f;
+    private bool cheerFlag = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +55,8 @@ public class GameManager : MonoBehaviour
         timeRemaining = maxTime;
         UpdateTimer(timeRemaining);
         txt.text = "スコア：" + score.ToString();
+
+        cheerUI = GameObject.Find("Cheer").GetComponent<Canvas>();
     }
 
     public void UpdateScore(){
@@ -68,6 +75,11 @@ public class GameManager : MonoBehaviour
             txt.text = "スコア：" + score.ToString();
             Debug.Log("Score is " + score);
         }
+
+        //cheer!
+        cheerUI.enabled = true;
+        cheerFlag = true;
+        cheerTimeOut = 2f;
     }
 
     public void UpdateKillCount(){
@@ -107,6 +119,16 @@ public class GameManager : MonoBehaviour
             if(!isSpawning){
                 isSpawning = true;
                 GameObject.Find("SpawnManager").GetComponent<SpawnManager>().StartSpawn();
+            }
+
+            if(cheerFlag){
+                cheerTimeOut -= Time.deltaTime;
+
+                if(cheerTimeOut <= 0f){
+                    cheerFlag = false;
+                    cheerUI.enabled = false;
+                    //cheerTimeOut = 2f;
+                }
             }
 
             timeRemaining -= Time.deltaTime;
