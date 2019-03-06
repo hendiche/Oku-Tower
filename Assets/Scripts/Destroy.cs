@@ -7,6 +7,7 @@ using Leap.Unity;
 public class Destroy : MonoBehaviour
 {
     public Transform explosionPrefab;
+    public Transform towerExplosion;
     // Start is called before the first frame update
 
     private GameObject gameManager;
@@ -35,7 +36,7 @@ public class Destroy : MonoBehaviour
                 Destroy(this.gameObject);
         }else if(collision.gameObject.tag == "tower"){
                 gmScript.DecreaseScore();
-                Instantiate (explosionPrefab, pos, Quaternion.identity);
+                Instantiate (towerExplosion, pos, Quaternion.identity);
                 Destroy(this.gameObject);
         }
       }
