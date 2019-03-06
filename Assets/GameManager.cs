@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
         }
 
         //cheer!
+        SoundManagerScript.PlaySound("daijoubu");
         cheerUI.enabled = true;
         cheerFlag = true;
         cheerTimeOut = 2f;

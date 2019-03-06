@@ -10,6 +10,8 @@ public class SoundManagerScript : MonoBehaviour
 
     tanukiSound,
 
+    daijoubuSound,
+
     pointSound;
 
     static AudioSource audioSrc;
@@ -19,6 +21,7 @@ public class SoundManagerScript : MonoBehaviour
         poofSound = Resources.Load<AudioClip>("poof");
         tanukiSound = Resources.Load<AudioClip>("tanuki");
         pointSound = Resources.Load<AudioClip>("point");
+        daijoubuSound = Resources.Load<AudioClip>("Daijoubu");
 
         audioSrc = GetComponent<AudioSource>();
     }
@@ -41,6 +44,10 @@ public class SoundManagerScript : MonoBehaviour
                 
             case("point") :
                 audioSrc.PlayOneShot(pointSound);
+                break;
+                
+            case("daijoubu") :
+                audioSrc.PlayOneShot(daijoubuSound);
                 break;
         }
     }
