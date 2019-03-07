@@ -39,9 +39,17 @@ public class GameManager : MonoBehaviour
     private float cheerTimeOut = 2f;
     private bool cheerFlag = false;
 
+    //BGM
+
+    public AudioSource bgm;
+    public AudioSource endBGM;
+
     // Start is called before the first frame update
     void Start()
     {
+
+        SoundManagerScript.PlaySound("countdown");
+
         score = 0; 
         txt = GameObject.Find("Text").GetComponent<Text>();
         GOTxt = GameObject.Find("GO Score").GetComponent<Text>();
@@ -71,13 +79,15 @@ public class GameManager : MonoBehaviour
 
     public void DecreaseScore(){
         if(!isGameEnd && score > 0){
+            SoundManagerScript.PlaySound("badpoof");
             score--;
             txt.text = "スコア：" + score.ToString();
             Debug.Log("Score is " + score);
+
+            SoundManagerScript.PlaySound("daijoubu");
         }
 
         //cheer!
-        SoundManagerScript.PlaySound("daijoubu");
         cheerUI.enabled = true;
         cheerFlag = true;
         cheerTimeOut = 2f;
@@ -149,6 +159,8 @@ public class GameManager : MonoBehaviour
                 isStartCounting = true;
                 countTime = 5.0f;
 
+                bgm.Stop();
+                endBGM.Play();
             }
             else
             {

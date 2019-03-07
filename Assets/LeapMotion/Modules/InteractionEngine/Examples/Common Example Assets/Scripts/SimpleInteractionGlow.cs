@@ -42,6 +42,9 @@ public class SimpleInteractionGlow : MonoBehaviour {
 
   private InteractionBehaviour _intObj;
 
+  private bool soundIsPlayed = false;
+  private bool soundIsPlayed2 = false;
+
   void Start() {
     _intObj = GetComponent<InteractionBehaviour>();
 
@@ -64,9 +67,17 @@ public class SimpleInteractionGlow : MonoBehaviour {
       // only have if an InteractionHand's thumb, index, or middle finger is closer to it
       // than any other interaction object.
       if (_intObj.isPrimaryHovered && usePrimaryHover) {
+        
         targetColor = primaryHoverColor;
+        
+        if(!soundIsPlayed) {
+          SoundManagerScript.PlaySound("hover");
+          soundIsPlayed = true;
+        }
       }
       else {
+        if(soundIsPlayed) soundIsPlayed = false;
+
         // Of course, any number of objects can be hovered by any number of InteractionHands.
         // InteractionBehaviour provides an API for accessing various interaction-related
         // state information such as the closest hand that is hovering nearby, if the object
@@ -74,6 +85,7 @@ public class SimpleInteractionGlow : MonoBehaviour {
         if (_intObj.isHovered && useHover) {
           float glow = _intObj.closestHoveringControllerDistance.Map(0F, 0.2F, 1F, 0.0F);
           targetColor = Color.Lerp(defaultColor, hoverColor, glow);
+
         }
       }
 
@@ -89,6 +101,13 @@ public class SimpleInteractionGlow : MonoBehaviour {
       // and assign them a unique color in that case.
       if (_intObj is InteractionButton && (_intObj as InteractionButton).isPressed) {
         targetColor = pressedColor;
+        
+        if(!soundIsPlayed2) {
+          SoundManagerScript.PlaySound("press");
+          soundIsPlayed2 = true;
+        }
+      } else {
+        if(soundIsPlayed2) soundIsPlayed2 = false;
       }
 
       // Lerp actual material color to the target color.
