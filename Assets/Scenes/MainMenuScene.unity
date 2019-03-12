@@ -1088,22 +1088,27 @@ PrefabInstance:
     - target: {fileID: 5598421146877804555, guid: 4c666136c8232c74cad00c22611c995c,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 9
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5598421146877804555, guid: 4c666136c8232c74cad00c22611c995c,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5598421146877804555, guid: 4c666136c8232c74cad00c22611c995c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.12
+      value: 0.073
       objectReference: {fileID: 0}
     - target: {fileID: 5598421146877804555, guid: 4c666136c8232c74cad00c22611c995c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.026
+      value: -0.089
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598421146877804555, guid: 4c666136c8232c74cad00c22611c995c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 5601015173326363231, guid: 4c666136c8232c74cad00c22611c995c,
         type: 3}
@@ -1174,6 +1179,11 @@ PrefabInstance:
         type: 3}
       propertyPath: primaryHoverColor.b
       value: 0.3529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487952201946712207, guid: 4c666136c8232c74cad00c22611c995c,
+        type: 3}
+      propertyPath: primaryHoverColor.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5602021450488871952, guid: 4c666136c8232c74cad00c22611c995c,
         type: 3}
