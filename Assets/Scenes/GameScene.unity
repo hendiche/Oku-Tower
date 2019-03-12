@@ -1379,7 +1379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 926557106, guid: 8b56ef31b0ae7024a8a42c8662dd8b53, type: 3}
-  spawnTime: 6
+  spawnTime: 2.5
   spawnPoints:
   - {fileID: 450342276}
   - {fileID: 2146741120}
@@ -2014,11 +2014,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  killLimit: 10
+  killLimit: 100
   startTextDone: 0
   endCanvas: {fileID: 832383100}
   scoreCanvas: {fileID: 0}
-  maxTime: 60
+  maxTime: 90
   bgm: {fileID: 1715164636}
   endBGM: {fileID: 1125591604}
 --- !u!4 &2032266057
@@ -2550,6 +2550,10 @@ PrefabInstance:
       propertyPath: _ignoreContact
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 552781125, guid: 8b56ef31b0ae7024a8a42c8662dd8b53, type: 3}
+      propertyPath: towerExplosion
+      value: 
+      objectReference: {fileID: 426390, guid: 26f3c9ef6ad00c74cbaef3af126e0ef9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b56ef31b0ae7024a8a42c8662dd8b53, type: 3}
 --- !u!1001 &3636576279792575498
@@ -2617,6 +2621,16 @@ PrefabInstance:
     - target: {fileID: 3636576279845314868, guid: 487e51ef137745b40b928d3fe07e221f,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5156491904501603425, guid: 487e51ef137745b40b928d3fe07e221f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5156491904501603425, guid: 487e51ef137745b40b928d3fe07e221f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

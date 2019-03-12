@@ -14,6 +14,12 @@ public class MainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey("left")) {
+            SceneManager.LoadScene("MainMenuScene", LoadSceneMode.Single);
+        }
+        if (Input.GetKey("right")) {
+            SceneManager.LoadScene("PracticeScene", LoadSceneMode.Single);
+        }
         if (Input.GetKey("escape")) {
             Application.Quit();
         }

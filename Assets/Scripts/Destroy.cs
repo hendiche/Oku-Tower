@@ -8,7 +8,7 @@ public class Destroy : MonoBehaviour
 {
     public Transform explosionPrefab;
     // Start is called before the first frame update
-
+    public Transform towerExplosion;
     private GameObject gameManager;
     private GameManager gmScript;
     private bool scoreFlag = false;
@@ -34,8 +34,8 @@ public class Destroy : MonoBehaviour
                 Instantiate (explosionPrefab, pos, Quaternion.identity);
                 Destroy(this.gameObject);
         }else if(collision.gameObject.tag == "tower"){
-                //gmScript.UpdateHP();
-                Instantiate (explosionPrefab, pos, Quaternion.identity);
+                gmScript.DecreaseScore();
+                Instantiate (towerExplosion, pos, Quaternion.identity);
                 Destroy(this.gameObject);
         }
       }
