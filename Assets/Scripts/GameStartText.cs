@@ -9,7 +9,6 @@ public class GameStartText : MonoBehaviour
     // Start is called before the first frame update
     public void StartGame()
     {
-        SoundManagerScript.PlaySound("countdown");
         gm = GameObject.Find ("GameManager").GetComponent<GameManager>();
         gm.startTextDone = true;
         Destroy(this.gameObject);
